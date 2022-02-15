@@ -24,6 +24,7 @@ namespace up01
     {
         dataBase select = new dataBase();
         SignUp signUp = new SignUp();
+        userWindow userWindow = new userWindow();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,38 +32,40 @@ namespace up01
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            string login = tbLogin.Text;
-            string pass = pb1.Password;
-            if (login.Length > 6)
-            {
-                if (pass.Length > 0)
-                {
-                    DataTable dt_user = this.Select("select*from [dbo].[clients] where [Email] ='" + login + "'and [Password] = '" + pass + "'");
-                    if (dt_user.Rows.Count > 0)
-                    {
-                        MessageBox.Show("Ну допустим ты существуешь");
-                        DataTable dt_role = this.Select("select*from [dbo].[Users] where [Email] ='" + login + "'and [RoleID] ='" + 1 + "'");
-                        if (dt_role.Rows.Count > 0)
-                        {
-                            //user.Show();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Net");
-                    }
-                }
-                else
-                {
-                    pb1.ToolTip = "Это поле введено некорректно";
-                    pb1.BorderBrush = Brushes.DarkRed;
-                }
-            }
-            else
-            {
-                tbLogin.ToolTip = "Это поле введено некорректно";//надо отслеживать сколько раз этот дебил неправильно вввел пароль(сделано)
-                tbLogin.BorderBrush = Brushes.DarkRed;
-            }
+            userWindow.Show();
+            this.Hide();
+            //string login = tbLogin.Text;
+            //string pass = pb1.Password;
+            //if (login.Length > 6)
+            //{
+            //    if (pass.Length > 0)
+            //    {
+            //        DataTable dt_user = this.Select("select*from [dbo].[clients] where [Email] ='" + login + "'and [Password] = '" + pass + "'");
+            //        if (dt_user.Rows.Count > 0)
+            //        {
+            //            MessageBox.Show("Ну допустим ты существуешь");
+            //            DataTable dt_role = this.Select("select*from [dbo].[Users] where [Email] ='" + login + "'and [RoleID] ='" + 1 + "'");
+            //            if (dt_role.Rows.Count > 0)
+            //            {
+            //                //user.Show();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Net");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        pb1.ToolTip = "Это поле введено некорректно";
+            //        pb1.BorderBrush = Brushes.DarkRed;
+            //    }
+            //}
+            //else
+            //{
+            //    tbLogin.ToolTip = "Это поле введено некорректно";//надо отслеживать сколько раз этот дебил неправильно вввел пароль(сделано)
+            //    tbLogin.BorderBrush = Brushes.DarkRed;
+            //}
         }
         public DataTable Select(string selectSQL)
         {

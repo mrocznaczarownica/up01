@@ -1,0 +1,77 @@
+﻿<Window x:Class="up01.userWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:up01"
+        mc:Ignorable="d"
+        Title="userWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="11">
+            <TabItem Header="Profile">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="User name" Style="{DynamicResource labelSt}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label Content="Email" Style="{DynamicResource labelSt}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label Content="Phone number" Style="{DynamicResource labelSt}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Button Content="Delete my account" Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}"/>
+                    <Button Grid.Column="9" Background='Transparent' Click="EditButton_Click" ToolTip="Edit your profile">
+                        <Image Source="C:\Users\Silki\source\repos\up01\up01\Resourse\edit.png"/>
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Object">
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
