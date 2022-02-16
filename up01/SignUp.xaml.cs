@@ -59,7 +59,7 @@ namespace up01
                             else
                             {
                                 MessageBox.Show("Введите пароль");
-                                //tbPass.BorderBrush = "#E3002C";
+                                
                             }
                         }
                     }
