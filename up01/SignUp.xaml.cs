@@ -35,15 +35,47 @@ namespace up01
 
         private void SignUp_Click(object sender, RoutedEventArgs e)
         {
-            string fName = firstName.Text;
-            string mName = middleName.Text;
-            string lName = lastName.Text;
+            string fName = firstName.Text;//familia
+            string mName = middleName.Text;//imya
+            string lName = lastName.Text;//otchestvo
             string phome = phone.Text;
             string email = tbEmail.Text;
-            if(fName.Length>0 & mName.Length>0 & (phome.Length > 0 | email.Length > 0))
-            {
+            string log = tbLogin.Text;
+            string pass = tbPass.Password;
 
+
+            if (fName.Length > 0)//проверка на имя
+            {
+                if(mName.Length > 0)//фамилию
+                {
+                    if(phome.Length > 0 || email.Length > 0)//ноер телефона или имейл
+                    {
+                        if(log.Length > 0)// proverka na login
+                        {
+                            if (pass.Length > 0)//i parol'
+                            {
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Введите пароль");
+                                //tbPass.BorderBrush = "#E3002C";
+                            }
+                        }
+                    }
+                }
             }
+//            if (textBox_login.Text.Length >; 0) // проверяем логин
+//{
+//                if (password.Password.Length >; 0) // проверяем пароль
+//	{
+//                    if (password_Copy.Password.Length >; 0) // проверяем второй пароль
+//		{
+
+
+//                    }else MessageBox.Show("Повторите пароль");
+//                }else MessageBox.Show("Укажите пароль");
+//            }else MessageBox.Show("Укажите логин");
         }
         public DataTable Select(string selectSQL)
         {
