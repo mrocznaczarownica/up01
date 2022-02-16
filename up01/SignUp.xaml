@@ -46,8 +46,8 @@
         <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="phone"/>
         <Label Content="or" Grid.Row="9" Grid.Column="1" FontSize="14"/>
         <Label Content="Email" FontSize="13" Grid.Column="1" Grid.Row="10" Padding="0 10 0 0"/>
-        <TextBox Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="email"/>
-        <Button Content="Sign Up" Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}"/>
+        <TextBox Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="tbEmail"/>
+        <Button Content="Sign Up" Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Click="SignUp_Click"/>
         <Button Content="Sign Up as rieltor" Grid.Column="5" Grid.Row="12" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Click="rieltorBt_Click"/>
     </Grid>
 </Window>
