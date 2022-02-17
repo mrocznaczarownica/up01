@@ -32,8 +32,29 @@ namespace up01
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            userWindow.Show();
-            this.Hide();
+            //userWindow.Show();
+            //this.Hide();
+            string log = tbLogin.Text;
+            string pass = pb1.Password;
+            if(log.Length > 0)
+            {
+                if(pass.Length > 0)
+                {
+
+                }
+                else
+                {
+                    nofiticftionPass.Content = "Введите пароль";
+                    Style passStyle = (Style)Resources["passStyle"];
+                    Style labStyle = (Style)Resources["labelStyle"];
+                }
+            }
+            else
+            {
+                nofiticftionLog.Content = "Введите логин";
+                //pb1.Style = Style.Resources.C
+                //pb1.BorderBrush = Color.FromArgb(1, 227, 0, 44);
+            }
             //string login = tbLogin.Text;
             //string pass = pb1.Password;
             //if (login.Length > 6)

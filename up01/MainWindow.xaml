@@ -36,7 +36,7 @@
         <Image Source="C:\Users\Silki\source\repos\up01\up01\Resourse\logo.png" Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="2" Cursor="Arrow"/>
         <Label Content="Login" FontSize="14" Grid.Column="1" Grid.Row="4" Padding="0 10 0 0"/>
         <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="tbLogin"/>
-        <Label Content="Password" FontSize="14" Grid.Column="1" Grid.Row="6" Padding="0 10 0 0"/>
+        <Label Content="Password" FontSize="14" Grid.Column="1" Grid.Row="6" Padding="0 10 0 0" x:Name="passLabel"/>
         <PasswordBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="10" Padding="0 10 0 0" Cursor="IBeam" x:Name="pb1"/>
         <Button Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" Style="{DynamicResource ButtomSt}" Content="Login" Click="LogButton_Click"/>
         <Button Grid.Column="5" Grid.Row="8" Grid.ColumnSpan="2" Style="{DynamicResource ButtomSt}" Content="Sign Up" Click="signUp_Click"/>
