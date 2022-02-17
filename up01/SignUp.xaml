@@ -46,9 +46,10 @@
         <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="middleName"/>
         <Label Content="Last Name*" FontSize="13" Grid.Column="1" Grid.Row="6" Padding="0 10 0 0"/>
         <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="lastName"/>
+        <Label Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5" Content="Необязательное поле"/>
         <Label Content="Phone" FontSize="13" Grid.Column="1" Grid.Row="8" Padding="0 10 0 0"/>
         <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="phone"/>
-        <Label Content="or" Grid.Row="9" Grid.Column="1" FontSize="14"/>
+        <Label Content="and/or" Grid.Row="9" Grid.Column="1" FontSize="14"/>
         <Label Content="Email" FontSize="13" Grid.Column="1" Grid.Row="10" Padding="0 10 0 0"/>
         <TextBox Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="tbEmail"/>
         <Label Grid.Row="12" Grid.Column="1" Content="Login" FontSize="13"/>

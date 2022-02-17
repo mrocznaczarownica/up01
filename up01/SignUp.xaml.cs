@@ -54,7 +54,12 @@ namespace up01
                         {
                             if (pass.Length > 0)//i parol'
                             {
-
+                                DataTable dt_log = this.Select("SELECT * FROM [dbo].[users] where [login] ='" + log + "'");
+                                DataTable dt_ag = this.Select("SELECT * FROM[dbo].[agents] where[login] = '" + log + "'");
+                                if(dt_log.Rows.Count == 0 && dt_ag.Rows.Count == 0)
+                                {
+                                    //DataTable dt_login = this.Select("")
+                                }
                             }
                             else
                             {

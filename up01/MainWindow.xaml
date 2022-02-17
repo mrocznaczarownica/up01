@@ -42,5 +42,6 @@
         <Button Grid.Column="5" Grid.Row="8" Grid.ColumnSpan="2" Style="{DynamicResource ButtomSt}" Content="Sign Up" Click="signUp_Click"/>
         <Label Grid.Row="5" Grid.Column="2" Margin="0 0 0 10" Grid.ColumnSpan="5" x:Name="nofiticftionLog"/>
         <Label Grid.Row="7" Grid.Column="2" Margin="0 0 0 10" Grid.ColumnSpan="5" x:Name="nofiticftionPass"/>
+        <Button Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2" Style="{DynamicResource ButtomSt}" Content="Sign Up as Rieltor" Click="rieltor_Click"/>
     </Grid>
 </Window>

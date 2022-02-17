@@ -25,6 +25,8 @@ namespace up01
         dataBase select = new dataBase();
         SignUp signUp = new SignUp();
         userWindow userWindow = new userWindow();
+        SignRieltor signRieltor = new SignRieltor();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,7 +42,24 @@ namespace up01
             {
                 if(pass.Length > 0)
                 {
-
+                    nofiticftionLog.Content = "Всё прекрасно";
+                    DataTable dt_client = this.Select("SELECT * FROM [dbo].[clients] where [login] ='" + log + "'and [password] ='" + pass + "'");
+                    if(dt_client.Rows.Count == 0)
+                    {
+                        DataTable dt_agents = this.Select("SELECT * FROM [dbo].[agents] where [login] ='" + log + "'and [password] ='" + pass + "'");
+                        if(dt_agents.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Вы агент");
+                            userWindow.Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Вы клиент");
+                        userWindow.Show();
+                        this.Hide();
+                    }
                 }
                 else
                 {
@@ -58,7 +77,7 @@ namespace up01
             //string login = tbLogin.Text;
             //string pass = pb1.Password;
             //if (login.Length > 6)
-            //{
+            //
             //    if (pass.Length > 0)
             //    {
             //        DataTable dt_user = this.Select("select*from [dbo].[clients] where [Email] ='" + login + "'and [Password] = '" + pass + "'");
@@ -103,6 +122,12 @@ namespace up01
         private void signUp_Click(object sender, RoutedEventArgs e)
         {
             signUp.Show();
+            this.Hide();
+        }
+
+        private void rieltor_Click(object sender, RoutedEventArgs e)
+        {
+            signRieltor.Show();
             this.Hide();
         }
     }
