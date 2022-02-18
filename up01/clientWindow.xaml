@@ -77,7 +77,7 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Create apartments">
-                
+
             </TabItem>
         </TabControl>
     </Grid>
