@@ -63,9 +63,9 @@ namespace up01
                             {
                                 DataTable dt_log = this.Select("SELECT * FROM [dbo].[clients] where [login] ='" + log + "'");
                                 DataTable dt_ag = this.Select("SELECT * FROM[dbo].[agents] where[login] = '" + log + "'");
-                                if (dt_log.Rows.Count == 0 && dt_ag.Rows.Count == 0)
+                                if (dt_log.Rows.Count == 0 && dt_ag.Rows.Count == 0)//все верно
                                 {
-                                    string query = "insert into [dbo].[clients]([FirstName],[MiddleName],[LastName],[Phone],[Email],[login],[password]) values(@firstName, @midName, @lastName, @phone, @email, @login, @pass)";
+                                    string query = "insert into [dbo].[agents]([FirstName],[MiddleName],[LastName],[DealShare],[login],[password]) values(@firstName, @midName, @lastName, @fract, @login, @pass)";
                                     using (conn)
                                     {
                                         conn.Open();
@@ -74,14 +74,13 @@ namespace up01
                                             cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = fName;
                                             cmd.Parameters.Add("@midName", SqlDbType.NVarChar).Value = mName;
                                             cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = lName;
-                                            cmd.Parameters.Add("@phone", SqlDbType.NVarChar).Value = phome;
-                                            cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
+                                            cmd.Parameters.Add("@fract", SqlDbType.Int).Value = fract;
                                             cmd.Parameters.Add("@login", SqlDbType.NVarChar).Value = log;
                                             cmd.Parameters.Add("@pass", SqlDbType.NVarChar).Value = pass;
                                             int rowsAdded = cmd.ExecuteNonQuery();
                                             if (rowsAdded > 0)
                                             {
-                                                MessageBox.Show("Пользователь загеристрирован");
+                                                MessageBox.Show("Агент загеристрирован");
                                                 //passNofotication.Content = "Пользователь загеристрирован";
 
                                                 user.Show();
@@ -107,17 +106,17 @@ namespace up01
                     }
                     else
                     {
-                        phoneNofiticftion.Content = "Введите номер телефона или адрес электронной почты";
+                        lastNofitication.Content = "Введите отчество";
                     }
                 }
                 else
                 {
-                    famNofiticftion.Content = "Введите фамилию";
+                    midNofitication.Content = "Введите фамилию";
                 }
             }
             else
             {
-                nameNofiticftion.Content = "Введите имя";
+                nameNofitication.Content = "Введите имя";
             }
         }
     }
