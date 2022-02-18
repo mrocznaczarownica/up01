@@ -17,16 +17,16 @@ using System.Windows.Shapes;
 namespace up01
 {
     /// <summary>
-    /// Логика взаимодействия для userWindow.xaml
+    /// Логика взаимодействия для clientWindow.xaml
     /// </summary>
-    public partial class userWindow : Window
+    public partial class clientWindow : Window
     {
-        public userWindow()
+        public clientWindow()
         {
             InitializeComponent();
 
-            rieldata.DataContext = this.Select("select * from [dbo].[apartments]");
-            rieldata.ItemsSource = this.Select("select * from [dbo].[apartments]").DefaultView;//нужно ли фильтровать выводимые данные?????? а как? айди?
+            clientdata.DataContext = this.Select("select * from [dbo].[apartments]");
+            clientdata.ItemsSource = this.Select("select * from [dbo].[apartments]").DefaultView;
         }
 
         public DataTable Select(string selectSQL)

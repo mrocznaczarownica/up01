@@ -1,11 +1,11 @@
-﻿<Window x:Class="up01.userWindow"
+﻿<Window x:Class="up01.clientWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:up01"
         mc:Ignorable="d"
-        Title="userWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="clientWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -71,10 +71,13 @@
             </TabItem>
             <TabItem Header="Object">
                 <ScrollViewer>
-                    <DataGrid Margin="15" x:Name="rieldata" IsEnabled="True" IsReadOnly="True">
+                    <DataGrid Margin="15" x:Name="clientdata" IsEnabled="True" IsReadOnly="True">
 
                     </DataGrid>
                 </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Create apartments">
+                
             </TabItem>
         </TabControl>
     </Grid>
