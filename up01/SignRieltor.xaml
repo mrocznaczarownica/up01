@@ -10,7 +10,10 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -36,12 +39,22 @@
         <Image Source="C:\Users\Silki\source\repos\up01\up01\Resourse\logo.png" Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="2" Cursor="Arrow"/>
         <Label Content="First Name" FontSize="14" Grid.Column="1" Grid.Row="2" Padding="0 10 0 0"/>
         <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="firstName"/>
+        <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" x:Name="nameNofitication"/>
         <Label Content="Middle Name" FontSize="13" Grid.Column="1" Grid.Row="4" Padding="0 10 0 0"/>
         <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="middleName"/>
-        <Label Content="Last Name*" FontSize="13" Grid.Column="1" Grid.Row="6" Padding="0 10 0 0"/>
+        <Label Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="5" x:Name="midNofitication"/>
+        <Label Content="Last Name" FontSize="13" Grid.Column="1" Grid.Row="6" Padding="0 10 0 0"/>
         <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="lastName"/>
-        <Label Content="Fraction" FontSize="13" Grid.Column="1" Grid.Row="8" Padding="0 10 0 0"/>
-        <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="phone"/>
-        <Button Content="Sign Up as rieltor" Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Click="rieltorBt_Click"/>
+        <Label Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5" x:Name="lastNofitication"/>
+        <Label Content="Fraction*" FontSize="13" Grid.Column="1" Grid.Row="8" Padding="0 10 0 0"/>
+        <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="fraction"/>
+        <Label Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="5" x:Name="frNofitication" Content="Не обязательное поле"/>
+        <Label Grid.Row="10" Grid.Column="1" Content="Login" FontSize="13"/>
+        <TextBox Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" Name="tbLogin"/>
+        <Label Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="5" x:Name="logNofotication"/>
+        <Label Grid.Row="12" Grid.Column="1" Content="Password" FontSize="13"/>
+        <PasswordBox Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" Name="tbPass"/>
+        <Label Grid.Row="13" Grid.Column="2" Grid.ColumnSpan="5" x:Name="passNofotication"/>
+        <Button Content="Sign Up as rieltor" Grid.Column="3" Grid.Row="14" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Click="rieltorBt_Click"/>
     </Grid>
 </Window>
