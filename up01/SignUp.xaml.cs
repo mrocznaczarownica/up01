@@ -63,24 +63,29 @@ namespace up01
                             }
                             else
                             {
-                                MessageBox.Show("Введите пароль");
-                                
+                                passNofotication.Content = "Введите пароль";
                             }
                         }
+                        else
+                        {
+                            logNofotication.Content = "Введите логин";
+                        }
+                    }
+                    else
+                    {
+                        phoneNofiticftion.Content = "Введите номер телефона или адрес электронной почты";
                     }
                 }
+                else
+                {
+                    famNofiticftion.Content = "Введите фамилию";
+                }
             }
-//            if (textBox_login.Text.Length >; 0) // проверяем логин
-//{
-//                if (password.Password.Length >; 0) // проверяем пароль
-//	{
-//                    if (password_Copy.Password.Length >; 0) // проверяем второй пароль
-//		{
+            else
+            {
+                nameNofiticftion.Content = "Введите имя";
+            }
 
-
-//                    }else MessageBox.Show("Повторите пароль");
-//                }else MessageBox.Show("Укажите пароль");
-//            }else MessageBox.Show("Укажите логин");
         }
         public DataTable Select(string selectSQL)
         {
