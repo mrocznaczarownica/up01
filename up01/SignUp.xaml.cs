@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,9 +24,24 @@ namespace up01
     public partial class SignUp : Window
     {
         SignRieltor signRieltor = new SignRieltor();
+        userWindow user = new userWindow();
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         public SignUp()
         {
             InitializeComponent();
+            
+        }
+
+        public DataTable Select(string selectSQL)
+        {
+            DataTable dataTable = new DataTable("dataBase");
+            SqlConnection sqlConnection = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            sqlConnection.Open();
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = selectSQL;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataTable);
+            return dataTable;
         }
 
         private void rieltorBt_Click(object sender, RoutedEventArgs e)
@@ -54,11 +71,38 @@ namespace up01
                         {
                             if (pass.Length > 0)//i parol'
                             {
-                                DataTable dt_log = this.Select("SELECT * FROM [dbo].[users] where [login] ='" + log + "'");
+                                DataTable dt_log = this.Select("SELECT * FROM [dbo].[clients] where [login] ='" + log + "'");
                                 DataTable dt_ag = this.Select("SELECT * FROM[dbo].[agents] where[login] = '" + log + "'");
                                 if(dt_log.Rows.Count == 0 && dt_ag.Rows.Count == 0)
                                 {
-                                    //DataTable dt_login = this.Select("")
+                                    string query = "insert into [dbo].[clients]([FirstName],[MiddleName],[LastName],[Phone],[Email],[login],[password]) values(@firstName, @midName, @lastName, @phone, @email, @login, @pass)";
+                                    using (conn)
+                                    {
+                                        conn.Open();
+                                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                                        {
+                                            cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = fName;
+                                            cmd.Parameters.Add("@midName", SqlDbType.NVarChar).Value = mName;
+                                            cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = lName;
+                                            cmd.Parameters.Add("@phone", SqlDbType.NVarChar).Value = phome;
+                                            cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
+                                            cmd.Parameters.Add("@login", SqlDbType.NVarChar).Value = log;
+                                            cmd.Parameters.Add("@pass", SqlDbType.NVarChar).Value = pass;
+                                            int rowsAdded = cmd.ExecuteNonQuery();
+                                            if (rowsAdded > 0)
+                                            {
+                                                MessageBox.Show("Пользователь загеристрирован");
+                                                //passNofotication.Content = "Пользователь загеристрирован";
+
+                                                user.Show();
+                                                this.Hide();
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    logNofotication.Content = "Пользователь с таким логином уже существует";
                                 }
                             }
                             else
@@ -87,16 +131,10 @@ namespace up01
             }
 
         }
-        public DataTable Select(string selectSQL)
+
+        private void num_KeyUp(object sender, KeyEventArgs e)
         {
-            DataTable dataTable = new DataTable("dataBase");
-            SqlConnection sqlConnection = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            sqlConnection.Open();
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = selectSQL;
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            sqlDataAdapter.Fill(dataTable);
-            return dataTable;
+           
         }
     }
 }
