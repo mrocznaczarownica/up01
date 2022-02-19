@@ -94,10 +94,10 @@ namespace up01
                                                         int rowsAdded = cmd.ExecuteNonQuery();
                                                         if (rowsAdded > 0)
                                                         {
-                                                            MessageBox.Show("Объект недвижимости создан");                                                           
+                                                            MessageBox.Show("Объект недвижимости создан");                                                        
 
-                                                            user.Show();
-                                                            this.Hide();
+                                                            //user.Show();
+                                                            //this.Hide();
                                                         }
                                                     }
                                                 }
