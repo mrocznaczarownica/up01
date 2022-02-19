@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:up01"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="SignRieltor" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
@@ -47,7 +47,7 @@
         <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="lastName"/>
         <Label Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5" x:Name="lastNofitication"/>
         <Label Content="Fraction*" FontSize="13" Grid.Column="1" Grid.Row="8" Padding="0 10 0 0"/>
-        <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="fraction" PreviewTextInput="fraction_PreviewTextInput" PreviewKeyDown="fraction_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" x:Name="fraction" Value="0" FormatString="N" Increment="1" Maximum="100" Minimum="0" CultureInfo="ru-RU"/>
         <Label Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="5" x:Name="frNofitication" Content="Не обязательное поле"/>
         <Label Grid.Row="10" Grid.Column="1" Content="Login" FontSize="13"/>
         <TextBox Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" Name="tbLogin"/>
