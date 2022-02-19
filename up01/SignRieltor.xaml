@@ -47,7 +47,7 @@
         <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="lastName"/>
         <Label Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5" x:Name="lastNofitication"/>
         <Label Content="Fraction*" FontSize="13" Grid.Column="1" Grid.Row="8" Padding="0 10 0 0"/>
-        <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="fraction"/>
+        <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" x:Name="fraction" PreviewTextInput="fraction_PreviewTextInput" PreviewKeyDown="fraction_PreviewKeyDown"/>
         <Label Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="5" x:Name="frNofitication" Content="Не обязательное поле"/>
         <Label Grid.Row="10" Grid.Column="1" Content="Login" FontSize="13"/>
         <TextBox Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5" Padding="0 10 0 0" Name="tbLogin"/>

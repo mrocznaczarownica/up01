@@ -81,7 +81,6 @@ namespace up01
                                             if (rowsAdded > 0)
                                             {
                                                 MessageBox.Show("Агент загеристрирован");
-                                                //passNofotication.Content = "Пользователь загеристрирован";
 
                                                 user.Show();
                                                 this.Hide();
@@ -117,6 +116,23 @@ namespace up01
             else
             {
                 nameNofitication.Content = "Введите имя";
+            }
+        }
+
+        private void fraction_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int val;
+            if (!Int32.TryParse(e.Text, out val) && e.Text != "-")
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fraction_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
             }
         }
     }

@@ -53,6 +53,12 @@ namespace up01
                             userWindow.Show();
                             this.Hide();
                         }
+                        else
+                        {
+                            nofiticftionPass.Content = "Логин или пароль введен неверно";
+                            nofiticftionLog.Content = null;
+                            pb1.Password = null;
+                        }
                     }
                     else
                     {

@@ -34,7 +34,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="11">
+        <Image Grid.Column="7" Grid.ColumnSpan="2" Source="C:\Users\Silki\source\repos\up01\up01\Resourse\logo.png"/>
+        <TabControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="11">
             <TabItem Header="Profile">
                 <Grid>
                     <Grid.ColumnDefinitions>

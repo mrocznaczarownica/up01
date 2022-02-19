@@ -136,5 +136,22 @@ namespace up01
         {
            
         }
+
+        private void tbLogin_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int val;
+            if(!Int32.TryParse(e.Text, out val) && e.Text != "-")
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbLogin_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
