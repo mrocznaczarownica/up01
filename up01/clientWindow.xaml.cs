@@ -24,6 +24,8 @@ namespace up01
     {
         flatPage flatPage1 = new flatPage();
         housePage housePage1 = new housePage();
+        landsPage landsPage1 = new landsPage();
+
         public clientWindow()
         {
             InitializeComponent();
@@ -61,7 +63,7 @@ namespace up01
 
         private void land_Click_1(object sender, RoutedEventArgs e)
         {
-
+            frame.NavigationService.Navigate(landsPage1);
         }
     }
 }
