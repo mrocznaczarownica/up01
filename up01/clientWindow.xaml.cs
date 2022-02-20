@@ -25,6 +25,7 @@ namespace up01
         flatPage flatPage1 = new flatPage();
         housePage housePage1 = new housePage();
         landsPage landsPage1 = new landsPage();
+        editPage edit = new editPage();
 
         public clientWindow()
         {
@@ -48,7 +49,7 @@ namespace up01
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.NavigationService.Navigate(edit);
         }
 
         private void apart_Click(object sender, RoutedEventArgs e)

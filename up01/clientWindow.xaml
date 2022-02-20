@@ -69,6 +69,9 @@
                     <Button Grid.Column="9" Background='Transparent' Click="EditButton_Click" ToolTip="Edit your profile">
                         <Image Source="C:\Users\Silki\source\repos\up01\up01\Resourse\edit.png"/>
                     </Button>
+                    <Frame Grid.ColumnSpan="10" Grid.RowSpan="9">
+                        
+                    </Frame>
                 </Grid>
             </TabItem>
             <TabItem Header="Object">
