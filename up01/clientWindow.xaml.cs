@@ -23,6 +23,7 @@ namespace up01
     public partial class clientWindow : Window
     {
         flatPage flatPage1 = new flatPage();
+        housePage housePage1 = new housePage();
         public clientWindow()
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace up01
 
         private void house_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.NavigationService.Navigate(housePage1);
         }
 
         private void land_Click_1(object sender, RoutedEventArgs e)
