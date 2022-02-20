@@ -49,7 +49,7 @@ namespace up01
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(edit);
+            frame1.NavigationService.Navigate(edit);
         }
 
         private void apart_Click(object sender, RoutedEventArgs e)

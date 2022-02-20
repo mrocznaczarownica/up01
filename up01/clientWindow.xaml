@@ -66,10 +66,8 @@
                     <Label Content="Email" Style="{DynamicResource labelSt}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Label Content="Phone number" Style="{DynamicResource labelSt}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button Content="Delete my account" Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}"/>
-                    <Button Grid.Column="9" Background='Transparent' Click="EditButton_Click" ToolTip="Edit your profile">
-                        <Image Source="C:\Users\Silki\source\repos\up01\up01\Resourse\edit.png"/>
-                    </Button>
-                    <Frame Grid.ColumnSpan="10" Grid.RowSpan="9">
+                    <Button Grid.Column="9" Content="Edit" Click="EditButton_Click" ToolTip="Edit your profile" Cursor="Hand" Style="{DynamicResource ButtomSt}"/>
+                    <Frame Grid.ColumnSpan="10" Grid.RowSpan="9" x:Name="frame1">
                         
                     </Frame>
                 </Grid>

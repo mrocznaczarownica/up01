@@ -24,5 +24,10 @@ namespace up01
         {
             InitializeComponent();
         }
+
+        private void create_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
