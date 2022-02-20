@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:up01"
         mc:Ignorable="d"
-        Title="clientWindow" Height="450" Width="800">
+        Title="clientWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -36,7 +36,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Image Grid.Column="7" Grid.ColumnSpan="2" Source="C:\Users\Silki\source\repos\up01\up01\Resourse\logo.png"/>
-        <TabControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="11">
+        <TabControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="13">
             <TabItem Header="Profile">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -108,6 +108,12 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+                    <Button Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Add apatment" Click="apart_Click"/>
+                    <Button Grid.Column="4" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Add house" Click="house_Click"/>
+                    <Button Grid.ColumnSpan="3" Grid.Column="8" Style="{DynamicResource ButtomSt}" Content="Add land" Click="land_Click_1"/>
+                    <Frame x:Name="frame" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="11" Grid.RowSpan="12">
+                        
+                    </Frame>
                 </Grid>
             </TabItem>
         </TabControl>

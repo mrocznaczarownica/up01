@@ -23,8 +23,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -38,7 +38,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-            </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
         <TextBox materialDesign:HintAssist.Hint="City" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Name="adressCity"/>
         <TextBox Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" x:Name="adressStreet" materialDesign:HintAssist.Hint="Street"/>
         <TextBox materialDesign:HintAssist.Hint="Number of House" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Name="adressHouse" PreviewTextInput="adressHouse_PreviewTextInput" PreviewKeyDown="adressHouse_PreviewKeyDown"/>

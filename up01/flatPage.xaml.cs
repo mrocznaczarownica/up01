@@ -76,12 +76,15 @@ namespace up01
                                         {
                                             if(floor1.Length > 0)
                                             {
-                                                string query = "insert into [dbo].[apartments]([Id],[Address_City],[Address_Street],[Address_House],[Address_Number],[Coordinate_latitude],[Coordinate_longitude],[TotalArea],[Rooms],[Floor]) values(@city, @street, @house, @number, @latit, @long, @area, @rooms, @floor)";
+                                                string query = "insert into [dbo].[apartments]([Id],[Address_City],[Address_Street],[Address_House],[Address_Number],[Coordinate_latitude],[Coordinate_longitude],[TotalArea],[Rooms],[Floor]) values(@id, @city, @street, @house, @number, @latit, @long, @area, @rooms, @floor)";
                                                 using (conn)
                                                 { //@city, @street, @house, @number, @latit, @long, @area, @rooms, @floor
                                                     conn.Open();
                                                     using (SqlCommand cmd = new SqlCommand(query, conn))
                                                     {
+                                                        //int id = Convert.ToInt32("SELECT MAX(id) FROM apartments");
+                                                        string id = "SELECT MAX(id) FROM apartments";
+                                                        cmd.Parameters.Add("@id", SqlDbType.BigInt).Value = Convert.ToInt64(id) + 1;
                                                         cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = city;
                                                         cmd.Parameters.Add("@street", SqlDbType.NVarChar).Value = street;
                                                         cmd.Parameters.Add("@house", SqlDbType.NVarChar).Value = numHouse;
@@ -94,10 +97,9 @@ namespace up01
                                                         int rowsAdded = cmd.ExecuteNonQuery();
                                                         if (rowsAdded > 0)
                                                         {
-                                                            MessageBox.Show("Объект недвижимости создан");                                                        
+                                                            MessageBox.Show("Объект недвижимости создан");
 
-                                                            //user.Show();
-                                                            //this.Hide();
+                                                            //user.Show();                                                          
                                                         }
                                                     }
                                                 }

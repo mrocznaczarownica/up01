@@ -26,6 +26,7 @@ namespace up01
         SignUp signUp = new SignUp();
         userWindow userWindow = new userWindow();
         SignRieltor signRieltor = new SignRieltor();
+        clientWindow client = new clientWindow();
 
         public MainWindow()
         {
@@ -63,7 +64,7 @@ namespace up01
                     else
                     {
                         MessageBox.Show("Вы клиент");
-                        userWindow.Show();
+                        client.Show();
                         this.Hide();
                     }
                 }

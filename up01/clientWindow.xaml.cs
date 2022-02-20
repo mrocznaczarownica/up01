@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace up01
@@ -21,6 +22,7 @@ namespace up01
     /// </summary>
     public partial class clientWindow : Window
     {
+        flatPage flatPage1 = new flatPage();
         public clientWindow()
         {
             InitializeComponent();
@@ -42,6 +44,21 @@ namespace up01
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void apart_Click(object sender, RoutedEventArgs e)
+        {
+            frame.NavigationService.Navigate(flatPage1);
+        }
+
+        private void house_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void land_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
