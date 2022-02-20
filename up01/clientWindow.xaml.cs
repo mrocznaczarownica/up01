@@ -30,9 +30,6 @@ namespace up01
         public clientWindow()
         {
             InitializeComponent();
-
-            clientdata.DataContext = this.Select("select * from [dbo].[apartments]");
-            clientdata.ItemsSource = this.Select("select * from [dbo].[apartments]").DefaultView;
         }
 
         public DataTable Select(string selectSQL)
@@ -65,6 +62,24 @@ namespace up01
         private void land_Click_1(object sender, RoutedEventArgs e)
         {
             frame.NavigationService.Navigate(landsPage1);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            clientdata.DataContext = this.Select("select * from [dbo].[apartments]");
+            clientdata.ItemsSource = this.Select("select * from [dbo].[apartments]").DefaultView;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            clientdata.DataContext = this.Select("select * from [dbo].[houses]");
+            clientdata.ItemsSource = this.Select("select * from [dbo].[houses]").DefaultView;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            clientdata.DataContext = this.Select("select * from [dbo].[lands]");
+            clientdata.ItemsSource = this.Select("select * from [dbo].[lands]").DefaultView;
         }
     }
 }

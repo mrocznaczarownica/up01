@@ -73,11 +73,39 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Object">
-                <ScrollViewer>
-                    <DataGrid Margin="15" x:Name="clientdata" IsEnabled="True" IsReadOnly="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.ColumnSpan="2" Style="{DynamicResource ButtomSt}" Content="Apatment" Click="Button_Click"/>
+                    <Button Grid.Column="4" Grid.ColumnSpan="2" Style="{DynamicResource ButtomSt}" Content="House" Click="Button_Click_1"/>
+                    <Button Grid.ColumnSpan="2" Grid.Column="8" Style="{DynamicResource ButtomSt}" Content="Land" Click="Button_Click_2"/>
+                    <ScrollViewer Grid.Row="2" Grid.ColumnSpan="10" Grid.RowSpan="7">
+                        <DataGrid  x:Name="clientdata" IsEnabled="True" IsReadOnly="True">
 
-                    </DataGrid>
-                </ScrollViewer>
+                        </DataGrid>
+                    </ScrollViewer>
+                </Grid>
             </TabItem>
             <TabItem Header="Create apartments">
                 <Grid>
