@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +22,29 @@ namespace up01
     /// </summary>
     public partial class editPage : Page
     {
+        public string log;
         public editPage()
         {
             InitializeComponent();
+
+            firName.Text = this.Select("select [FirstName] from [dbo].[clients] where [login] ='" + log + "'").ToString();
         }
 
         private void create_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public DataTable Select(string selectSQL)
+        {
+            DataTable dataTable = new DataTable("dataBase");
+            SqlConnection sqlConnection = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            sqlConnection.Open();
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = selectSQL;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataTable);
+            return dataTable;
         }
     }
 }
