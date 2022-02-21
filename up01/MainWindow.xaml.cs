@@ -54,6 +54,7 @@ namespace up01
                         {
                             MessageBox.Show("Вы агент");
                             userWindow.Show();
+                            userWindow.log = log;
                             this.Hide();
                         }
                         else

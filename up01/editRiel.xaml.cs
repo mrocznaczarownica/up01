@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace up01
 {
@@ -23,9 +11,9 @@ namespace up01
     public partial class editRiel : Page
     {
         public string log;
-        SqlConnection connect1 = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection conne1 = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
-        SqlConnection connect = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection conne = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         public editRiel()
         {
@@ -34,11 +22,11 @@ namespace up01
 
         private void show_Click(object sender, RoutedEventArgs e)
         {
-            using (connect)
+            using (conne)
             {
                 string sqlcmd = "select * from [dbo].[agents] where [login] ='" + log + "'";
-                connect.Open();
-                SqlCommand cmd = new SqlCommand(sqlcmd, connect);
+                conne.Open();
+                SqlCommand cmd = new SqlCommand(sqlcmd, conne);
                 SqlDataReader rd;
                 rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -56,10 +44,10 @@ namespace up01
         private void create_Click(object sender, RoutedEventArgs e)
         {
             string query = "update [dbo].[agents] set [FirstName] = @firstName, [MiddleName] = @midName, [LastName] = @lastName, [DealShare] = @deal, [password] = @pass where login = '" + log + "'";
-            using (connect1)
+            using (conne1)
             {
-                connect1.Open();
-                using (SqlCommand cmd = new SqlCommand(query, connect1))
+                conne1.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conne1))
                 {
                     cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = firName.Text;
                     cmd.Parameters.Add("@midName", SqlDbType.NVarChar).Value = mName.Text;
