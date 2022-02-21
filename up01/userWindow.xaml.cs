@@ -21,6 +21,8 @@ namespace up01
     /// </summary>
     public partial class userWindow : Window
     {
+        editRiel editR = new editRiel();
+        public string log;
         public userWindow()
         {
             InitializeComponent();
@@ -42,6 +44,12 @@ namespace up01
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            frame1.NavigationService.Navigate(editR);
+            editR.log = log;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
