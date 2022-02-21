@@ -21,12 +21,13 @@ namespace up01
     /// Логика взаимодействия для clientWindow.xaml
     /// </summary>
     public partial class clientWindow : Window
-    {   public static string log;
+    {
+        public string log;
         flatPage flatPage1 = new flatPage();
         housePage housePage1 = new housePage();
         landsPage landsPage1 = new landsPage();
         editPage edit = new editPage();
-        
+
 
         public clientWindow()
         {
@@ -49,7 +50,7 @@ namespace up01
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             frame1.NavigationService.Navigate(edit);
-            //edit.log = log;
+            edit.log = log;
         }
 
         private void apart_Click(object sender, RoutedEventArgs e)

@@ -67,7 +67,7 @@ namespace up01
                     {
                         MessageBox.Show("Вы клиент");
                         client.Show();
-                        //client.log = log;
+                        client.log = log;
                         this.Hide();
                     }
                 }
