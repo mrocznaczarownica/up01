@@ -46,6 +46,7 @@
         <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" x:Name="email"/>
         <TextBox Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="4" x:Name="login"/>
         <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" x:Name="pass"/>
-        <Button Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Create" Click="create_Click"/>
+        <Button Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Show data" Click="show_Click"/>
+        <Button Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Create" Click="create_Click"/>
     </Grid>
 </Page>

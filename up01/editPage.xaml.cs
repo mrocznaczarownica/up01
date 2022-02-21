@@ -23,28 +23,32 @@ namespace up01
     public partial class editPage : Page
     {
         public string log;
+        //SqlConnection connect = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         public editPage()
         {
             InitializeComponent();
-
-            firName.Text = this.Select("select [FirstName] from [dbo].[clients] where [login] ='" + log + "'").ToString();
         }
 
         private void create_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Visibility = Visibility.Hidden;
         }
 
-        public DataTable Select(string selectSQL)
+        private void show_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dataTable = new DataTable("dataBase");
-            SqlConnection sqlConnection = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            sqlConnection.Open();
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = selectSQL;
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            sqlDataAdapter.Fill(dataTable);
-            return dataTable;
+            SqlConnection connect = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            using (connect)
+            {
+                string sqlcmd = "select * from [dbo].[clients] where [login] ='" + log + "'";
+                connect.Open();
+                SqlCommand cmd = new SqlCommand(sqlcmd, connect);
+                SqlDataReader rd;
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    firName.Text = rd[1].ToString();
+                }
+            }
         }
     }
 }

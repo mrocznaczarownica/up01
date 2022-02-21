@@ -22,7 +22,6 @@ namespace up01
     /// </summary>
     public partial class MainWindow : Window
     {
-        dataBase select = new dataBase();
         SignUp signUp = new SignUp();
         userWindow userWindow = new userWindow();
         SignRieltor signRieltor = new SignRieltor();
@@ -68,7 +67,7 @@ namespace up01
                     {
                         MessageBox.Show("Вы клиент");
                         client.Show();
-                        client.log = log;
+                        //client.log = log;
                         this.Hide();
                     }
                 }
@@ -93,6 +92,7 @@ namespace up01
             sqlCommand.CommandText = selectSQL;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
             return dataTable;
         }
 
