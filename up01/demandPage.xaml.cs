@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -25,8 +26,22 @@ namespace up01
         public demandPage()
         {
             InitializeComponent();
+            SqlConnection connect1 = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
-            
+            string query = "select [FirstName] from [dbo].[agents]";
+            using (connect1)
+            {
+                connect1.Open();
+                using(SqlCommand cmd = new SqlCommand(query, connect1))
+                {
+                    var adapter = new SqlDataAdapter(query, connect1);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds, "[dbo].[agents]");
+
+                    ComboBoxItem.DataContext = ds.Tables["[dbo].[agents]"].DefaultView;
+                    ComboBoxItem.DisplayMemberPath = ds.Tables["[dbo].[agents]"].Columns["FirstName"].ToString();
+                }
+            }
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)

@@ -39,7 +39,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="rielBox" materialDesign:HintAssist.Hint="Rieltor"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="ComboBoxItem" materialDesign:HintAssist.Hint="Rieltor"/>
         <ComboBox Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" x:Name="objectBox" materialDesign:HintAssist.Hint="Object Type"/>
         <xctk:IntegerUpDown Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" x:Name="maxPrice" Watermark="Max. Price" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
         <xctk:IntegerUpDown Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="3" x:Name="minPrice" Watermark="Min. Price" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
