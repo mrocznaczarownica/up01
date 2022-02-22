@@ -27,7 +27,7 @@ namespace up01
         housePage housePage1 = new housePage();
         landsPage landsPage1 = new landsPage();
         editPage edit = new editPage();
-
+        demandPage demand = new demandPage();
 
         public clientWindow()
         {
@@ -84,6 +84,17 @@ namespace up01
         {
             clientdata.DataContext = this.Select("select * from [dbo].[lands]");
             clientdata.ItemsSource = this.Select("select * from [dbo].[lands]").DefaultView;
+        }
+
+        private void demand_Click_3(object sender, RoutedEventArgs e)
+        {
+            dealFr.NavigationService.Navigate(demand);
+            demand.log = log;
+        }
+
+        private void offer_Click_3(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

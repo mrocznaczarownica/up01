@@ -142,6 +142,44 @@
                     </Frame>
                 </Grid>
             </TabItem>
+            <TabItem Header="Deals">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="1" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Create demand" Click="demand_Click_3"/>
+                    <Button Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="3" Style="{DynamicResource ButtomSt}" Content="Create an offer" Click="offer_Click_3"/>
+                    <Button Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}"/>
+                    <Frame x:Name="dealFr" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="11" Grid.RowSpan="12">
+
+                    </Frame>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
