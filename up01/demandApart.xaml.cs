@@ -28,20 +28,25 @@ namespace up01
             InitializeComponent();
             SqlConnection connect1 = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
-            string query = "select [FirstName] from [dbo].[agents]";
+            string query = "select FirstName from [dbo].[agents]";
+            List<string> rieltors = new List<string>(); 
             using (connect1)
             {
                 connect1.Open();
                 using(SqlCommand cmd = new SqlCommand(query, connect1))
                 {
-                    var adapter = new SqlDataAdapter(query, connect1);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds, "[dbo].[agents]");
-
-                    ComboBoxItem.DataContext = ds.Tables["[dbo].[agents]"].DefaultView;
-                    ComboBoxItem.DisplayMemberPath = ds.Tables["[dbo].[agents]"].Columns["FirstName"].ToString();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            rieltors.Add(reader["FirstName"].ToString());
+                        }
+                    }
                 }
             }
+            rielBox.ItemsSource = rieltors;
+            List<string> objTypes = new List<string>() {"House", "Apartments", "Lands"};
+            objectBox.ItemsSource = objTypes;
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)

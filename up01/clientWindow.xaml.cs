@@ -27,7 +27,8 @@ namespace up01
         housePage housePage1 = new housePage();
         landsPage landsPage1 = new landsPage();
         editPage edit = new editPage();
-        demandPage demand = new demandPage();
+        //demandPage demand = new demandPage();
+        demandTypePage demandType = new demandTypePage();
 
         public clientWindow()
         {
@@ -88,8 +89,9 @@ namespace up01
 
         private void demand_Click_3(object sender, RoutedEventArgs e)
         {
-            dealFr.NavigationService.Navigate(demand);
-            demand.log = log;
+            //dealFr.NavigationService.Navigate(demand);
+            demandType.log = log;
+            dealFr.NavigationService.Navigate(demandType);
         }
 
         private void offer_Click_3(object sender, RoutedEventArgs e)
