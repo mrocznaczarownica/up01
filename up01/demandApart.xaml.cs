@@ -55,26 +55,45 @@ namespace up01
 
         private void create_Click(object sender, RoutedEventArgs e)
         {
-            //string query = "update [dbo].[clients] set [FirstName] = @firstName, [MiddleName] = @midName, [LastName] = @lastName, [Phone] = @phone, [Email] = @email, [password] = @pass where login = '" + log + "'";
-            //using (connect1)
-            //{
-            //    connect1.Open();
-            //    using (SqlCommand cmd = new SqlCommand(query, connect1))
-            //    {
-            //        cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = firName.Text;
-            //        cmd.Parameters.Add("@midName", SqlDbType.NVarChar).Value = mName.Text;
-            //        cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = lastName.Text;
-            //        cmd.Parameters.Add("@phone", SqlDbType.NVarChar).Value = phone.Text;
-            //        cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = email.Text;
-            //        cmd.Parameters.Add("@pass", SqlDbType.NVarChar).Value = pass.Text;
-            //        int rowsAdded = cmd.ExecuteNonQuery();
-            //        if (rowsAdded > 0)
-            //        {
-            //            MessageBox.Show("Данные обновлены");
-            //            this.Visibility = Visibility.Hidden;
-            //        }
-            //    }
-            //}
+            string query = "insert into [dbo].[apartment-demands]([Address_City],[Address_Street],"
+                + "[Address_House],[Address_Number],[MinPrice],[MaxPrice],[AgentId],[ClientId],[MinArea]," +
+                "[MaxArea],[MinRooms],[MaxRooms],[MinFloor],[MaxFloor]) values(@city, @street, @house, @addNum, @minPrice, @maxPrice,"
+                + " @agentId, @clientId, @minArea, @maxArea, @minRooms, @maxRooms, @minFloor, @maxFloor)";
+            DataTable dt_riel = this.Select("select id from [dbo].[agents] where [FirstName] ='" + rielBox.SelectedItem + "'");
+            DataTable dt_client = this.Select("SELECT id from [dbo].[clients] where [login] ='" + log + "'");
+            if (rielBox.SelectedItem != null)
+            {
+                using (connect1)
+                {
+                    connect1.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, connect1))
+                    {
+                        cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = city.Text;
+                        cmd.Parameters.Add("@street", SqlDbType.NVarChar).Value = street.Text;
+                        cmd.Parameters.Add("@house", SqlDbType.NVarChar).Value = house.Text;
+                        cmd.Parameters.Add("@addNum", SqlDbType.NVarChar).Value = adrNum.Text;
+                        cmd.Parameters.Add("@minPrice", SqlDbType.NVarChar).Value = minPrice.Text;
+                        cmd.Parameters.Add("@maxPrice", SqlDbType.NVarChar).Value = maxPrice.Text;
+                        cmd.Parameters.Add("@agentId", SqlDbType.NVarChar).Value = dt_riel;
+                        cmd.Parameters.Add("@clientId", SqlDbType.NVarChar).Value = dt_client;
+                        cmd.Parameters.Add("@minArea", SqlDbType.NVarChar).Value = minArea.Text;
+                        cmd.Parameters.Add("@maxArea", SqlDbType.NVarChar).Value = maxArea.Text;
+                        cmd.Parameters.Add("@minRooms", SqlDbType.NVarChar).Value = minRooms.Text;
+                        cmd.Parameters.Add("@minFloor", SqlDbType.NVarChar).Value = minFloor.Text;
+                        cmd.Parameters.Add("@maxFloor", SqlDbType.NVarChar).Value = maxFloor.Text;
+                        int rowsAdded = cmd.ExecuteNonQuery();
+                        if (rowsAdded > 0)
+                        {
+                            MessageBox.Show("Данные обновлены");
+                            this.Visibility = Visibility.Hidden;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Поле Риэлтор не может быть пустым");
+            }
         }
 
         private void minPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -92,6 +111,18 @@ namespace up01
             {
                 e.Handled = true;
             }
+        }
+
+        public DataTable Select(string selectSQL)
+        {
+            DataTable dataTable = new DataTable("dataBase");
+            SqlConnection sqlConnection = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            sqlConnection.Open();
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = selectSQL;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataTable);
+            return dataTable;
         }
     }
 }

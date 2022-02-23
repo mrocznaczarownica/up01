@@ -31,6 +31,7 @@ namespace up01
         private void apart_Click(object sender, RoutedEventArgs e)
         {
             demFr.NavigationService.Navigate(demand);
+            demand.log = log;
         }
 
         private void house_Click(object sender, RoutedEventArgs e)
