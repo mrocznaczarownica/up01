@@ -38,13 +38,24 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="rielBox" materialDesign:HintAssist.Hint="Rieltor"/>
-        <ComboBox Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" x:Name="objectBox" materialDesign:HintAssist.Hint="Object Type"/>
-        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" x:Name="maxPrice" Watermark="Max. Price" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
-        <xctk:IntegerUpDown Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="3" x:Name="minPrice" Watermark="Min. Price" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" x:Name="addrestb" materialDesign:HintAssist.Hint="Adress"/>
-        <Button Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Cancel" Click="cancel_Click"/>
-        <Button Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Create" Click="create_Click"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="rielBox" materialDesign:HintAssist.Hint="Rieltor"/>
+        <xctk:IntegerUpDown Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="3" x:Name="maxPrice" Watermark="Max. Price" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="3" x:Name="minPrice" Watermark="Min. Price" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="3" x:Name="maxArea" Watermark="Max. Area" FormatString="N" Increment="1" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="3" x:Name="minArea" Watermark="Min. Area" FormatString="N" Increment="1" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="3" x:Name="maxRooms" Watermark="Max. Rooms" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Column="6" Grid.Row="8" Grid.ColumnSpan="3" x:Name="minRooms" Watermark="Min. Rooms" FormatString="N" Increment="10000" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Column="6" Grid.Row="10" Grid.ColumnSpan="3" x:Name="maxFloor" Watermark="Max. Floor" FormatString="N" Increment="1" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="3" x:Name="minFloor" Watermark="Min. Floor" FormatString="N" Increment="1" Minimum="1" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" x:Name="city" materialDesign:HintAssist.Hint="City"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" x:Name="street" materialDesign:HintAssist.Hint="Street"/>
+        <TextBox Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="3" x:Name="house" materialDesign:HintAssist.Hint="House"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" x:Name="adrNum" materialDesign:HintAssist.Hint="Number"/>
+        <Button Grid.Row="14" Grid.Column="6" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Cancel" Click="cancel_Click"/>
+        <Button Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Create" Click="create_Click"/>
     </Grid>
 </Page>

@@ -28,6 +28,7 @@ namespace up01
         {
             InitializeComponent();
         }
+
         public DataTable Select(string selectSQL)
         {
             DataTable dataTable = new DataTable("dataBase");

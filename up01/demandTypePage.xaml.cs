@@ -20,7 +20,7 @@ namespace up01
     /// </summary>
     public partial class demandTypePage : Page
     {
-        //demandPage demand = new demandPage();
+        demandPage demand = new demandPage();
         //clientWindow client = new clientWindow();
         public string log;
         public demandTypePage()
@@ -30,7 +30,7 @@ namespace up01
 
         private void apart_Click(object sender, RoutedEventArgs e)
         {
-            //_ = client.dealFr.NavigationService.Navigate(demand);
+            demFr.NavigationService.Navigate(demand);
         }
 
         private void house_Click(object sender, RoutedEventArgs e)
@@ -45,7 +45,7 @@ namespace up01
 
         private void cans_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

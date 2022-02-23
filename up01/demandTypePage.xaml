@@ -41,5 +41,8 @@
         <Button Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Houses" Click="house_Click"/>
         <Button Grid.Column="4" Grid.Row="6" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Lands" Click="land_Click"/>
         <Button Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Cancel" Click="cans_Click"/>
+        <Frame Grid.ColumnSpan="11" Grid.RowSpan="13" x:Name="demFr">
+            
+        </Frame>
     </Grid>
 </Page>
