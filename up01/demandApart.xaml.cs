@@ -24,6 +24,8 @@ namespace up01
     {
         SqlConnection connect1 = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
+        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-GK9EKMOU;Initial Catalog=esoft;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
         public string log;
         public demandPage()
         {
@@ -55,36 +57,46 @@ namespace up01
 
         private void create_Click(object sender, RoutedEventArgs e)
         {
+            int priceVal;
             string query = "insert into [dbo].[apartment-demands]([Address_City],[Address_Street],"
                 + "[Address_House],[Address_Number],[MinPrice],[MaxPrice],[AgentId],[ClientId],[MinArea]," +
                 "[MaxArea],[MinRooms],[MaxRooms],[MinFloor],[MaxFloor]) values(@city, @street, @house, @addNum, @minPrice, @maxPrice,"
                 + " @agentId, @clientId, @minArea, @maxArea, @minRooms, @maxRooms, @minFloor, @maxFloor)";
-            DataTable dt_riel = this.Select("select id from [dbo].[agents] where [FirstName] ='" + rielBox.SelectedItem + "'");
-            DataTable dt_client = this.Select("SELECT id from [dbo].[clients] where [login] ='" + log + "'");
+            string dt_riel = this.Select("select id from [dbo].[agents] where [FirstName] ='" + rielBox.SelectedItem.ToString() + "'").ToString();
+            string dt_client = this.Select("SELECT id from [dbo].[clients] where [login] ='" + log + "'").ToString();
             if (rielBox.SelectedItem != null)
             {
-                using (connect1)
+                if (maxPrice.Text == "")
                 {
-                    connect1.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, connect1))
+                    priceVal = 0;
+                }
+                else
+                {
+                    priceVal = int.Parse(maxPrice.Text);
+                }
+                using (conn)
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = city.Text;
                         cmd.Parameters.Add("@street", SqlDbType.NVarChar).Value = street.Text;
                         cmd.Parameters.Add("@house", SqlDbType.NVarChar).Value = house.Text;
                         cmd.Parameters.Add("@addNum", SqlDbType.NVarChar).Value = adrNum.Text;
                         cmd.Parameters.Add("@minPrice", SqlDbType.NVarChar).Value = minPrice.Text;
-                        cmd.Parameters.Add("@maxPrice", SqlDbType.NVarChar).Value = maxPrice.Text;
-                        cmd.Parameters.Add("@agentId", SqlDbType.NVarChar).Value = dt_riel;
-                        cmd.Parameters.Add("@clientId", SqlDbType.NVarChar).Value = dt_client;
-                        cmd.Parameters.Add("@minArea", SqlDbType.NVarChar).Value = minArea.Text;
+                        cmd.Parameters.Add("@maxPrice", SqlDbType.Int).Value = priceVal;
+                        cmd.Parameters.Add("@agentId", SqlDbType.Int).Value = dt_riel.ToString();
+                        cmd.Parameters.Add("@clientId", SqlDbType.Int).Value = dt_client.ToString();
+                        cmd.Parameters.Add("@minArea", SqlDbType.Int).Value = minArea.Text;
                         cmd.Parameters.Add("@maxArea", SqlDbType.NVarChar).Value = maxArea.Text;
-                        cmd.Parameters.Add("@minRooms", SqlDbType.NVarChar).Value = minRooms.Text;
-                        cmd.Parameters.Add("@minFloor", SqlDbType.NVarChar).Value = minFloor.Text;
-                        cmd.Parameters.Add("@maxFloor", SqlDbType.NVarChar).Value = maxFloor.Text;
+                        cmd.Parameters.Add("@minRooms", SqlDbType.Int).Value = minRooms.Text;
+                        cmd.Parameters.Add("@maxRooms", SqlDbType.NVarChar).Value = maxRooms.Text;
+                        cmd.Parameters.Add("@minFloor", SqlDbType.Int).Value = minFloor.Text;
+                        cmd.Parameters.Add("@maxFloor", SqlDbType.Int).Value = maxFloor.Text;
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
                         {
-                            MessageBox.Show("Данные обновлены");
+                            MessageBox.Show("Данные зарегистрированы");
                             this.Visibility = Visibility.Hidden;
                         }
                     }
