@@ -28,6 +28,7 @@ namespace up01
         landsPage landsPage1 = new landsPage();
         editPage edit = new editPage();
         supplPage suppl = new supplPage();
+        dealsPage deals = new dealsPage();
         //demandPage demand = new demandPage();
         demandTypePage demandType = new demandTypePage();
 
@@ -97,8 +98,13 @@ namespace up01
 
         private void offer_Click_3(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(suppl);
+            dealFr.NavigationService.Navigate(suppl);
             suppl.log = log;
+        }
+
+        private void deal_Click(object sender, RoutedEventArgs e)
+        {
+            dealFr.NavigationService.Navigate(deals);
         }
     }
 }
