@@ -62,8 +62,8 @@ namespace up01
                 "[MaxArea],[MinRooms],[MaxRooms],[MinFloor],[MaxFloor]) values(@city, @street, @house, @addNum, @minPrice, @maxPrice,"
                 + " @agentId, @clientId, @minArea, @maxArea, @minRooms, @maxRooms, @minFloor, @maxFloor)";
             int id_riel = int.Parse((string)rielBox.SelectedItem);
-            //DataTable dt_riel = this.Select("select * from [dbo].[agents] where FirstName = '" + rielBox.SelectedItem.ToString() + "'");
-            DataTable dt_client = this.Select("SELECT id from [dbo].[clients] where login ='" + log + "'");
+            //DataTable dt_riel = this.Select($"select * from [dbo].[agents] where FirstName = '{rielBox.SelectedItem.ToString()}'");
+            DataTable dt_client = this.Select($"SELECT id from [dbo].[clients] where login ='{log}'");
             if (rielBox.SelectedItem != null)
             {
                 using (conn)

@@ -21,6 +21,7 @@ namespace up01
     public partial class demandTypePage : Page
     {
         demandPage demand = new demandPage();
+        demandHouse house = new demandHouse();
         //clientWindow client = new clientWindow();
         public string log;
         public demandTypePage()
@@ -36,7 +37,8 @@ namespace up01
 
         private void house_Click(object sender, RoutedEventArgs e)
         {
-
+            demFr.NavigationService.Navigate(house);
+            house.log = log;
         }
 
         private void land_Click(object sender, RoutedEventArgs e)
