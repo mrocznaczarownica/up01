@@ -31,7 +31,7 @@ namespace up01
         {
             InitializeComponent();
 
-            string query = "select FirstName from [dbo].[agents]";
+            string query = "select Id from [dbo].[agents]";
             List<string> rieltors = new List<string>();
             using (connect1)
             {
@@ -42,7 +42,7 @@ namespace up01
                     {
                         while (reader.Read())
                         {
-                            rieltors.Add(reader["FirstName"].ToString());
+                            rieltors.Add(reader["Id"].ToString());
                         }
                     }
                 }
@@ -57,42 +57,34 @@ namespace up01
 
         private void create_Click(object sender, RoutedEventArgs e)
         {
-            int priceVal;
             string query = "insert into [dbo].[apartment-demands]([Address_City],[Address_Street],"
                 + "[Address_House],[Address_Number],[MinPrice],[MaxPrice],[AgentId],[ClientId],[MinArea]," +
                 "[MaxArea],[MinRooms],[MaxRooms],[MinFloor],[MaxFloor]) values(@city, @street, @house, @addNum, @minPrice, @maxPrice,"
                 + " @agentId, @clientId, @minArea, @maxArea, @minRooms, @maxRooms, @minFloor, @maxFloor)";
-            string dt_riel = this.Select("select id from [dbo].[agents] where [FirstName] ='" + rielBox.SelectedItem.ToString() + "'").ToString();
-            string dt_client = this.Select("SELECT id from [dbo].[clients] where [login] ='" + log + "'").ToString();
+            int id_riel = int.Parse((string)rielBox.SelectedItem);
+            //DataTable dt_riel = this.Select("select * from [dbo].[agents] where FirstName = '" + rielBox.SelectedItem.ToString() + "'");
+            DataTable dt_client = this.Select("SELECT id from [dbo].[clients] where login ='" + log + "'");
             if (rielBox.SelectedItem != null)
             {
-                if (maxPrice.Text == "")
-                {
-                    priceVal = 0;
-                }
-                else
-                {
-                    priceVal = int.Parse(maxPrice.Text);
-                }
                 using (conn)
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = city.Text;
-                        cmd.Parameters.Add("@street", SqlDbType.NVarChar).Value = street.Text;
-                        cmd.Parameters.Add("@house", SqlDbType.NVarChar).Value = house.Text;
-                        cmd.Parameters.Add("@addNum", SqlDbType.NVarChar).Value = adrNum.Text;
-                        cmd.Parameters.Add("@minPrice", SqlDbType.NVarChar).Value = minPrice.Text;
-                        cmd.Parameters.Add("@maxPrice", SqlDbType.Int).Value = priceVal;
-                        cmd.Parameters.Add("@agentId", SqlDbType.Int).Value = dt_riel.ToString();
-                        cmd.Parameters.Add("@clientId", SqlDbType.Int).Value = dt_client.ToString();
-                        cmd.Parameters.Add("@minArea", SqlDbType.Int).Value = minArea.Text;
-                        cmd.Parameters.Add("@maxArea", SqlDbType.NVarChar).Value = maxArea.Text;
-                        cmd.Parameters.Add("@minRooms", SqlDbType.Int).Value = minRooms.Text;
-                        cmd.Parameters.Add("@maxRooms", SqlDbType.NVarChar).Value = maxRooms.Text;
-                        cmd.Parameters.Add("@minFloor", SqlDbType.Int).Value = minFloor.Text;
-                        cmd.Parameters.Add("@maxFloor", SqlDbType.Int).Value = maxFloor.Text;
+                        cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = ParseString(city.Text);
+                        cmd.Parameters.Add("@street", SqlDbType.NVarChar).Value = ParseString(street.Text);
+                        cmd.Parameters.Add("@house", SqlDbType.NVarChar).Value = ParseString(house.Text);
+                        cmd.Parameters.Add("@addNum", SqlDbType.NVarChar).Value = ParseString(adrNum.Text);
+                        cmd.Parameters.Add("@minPrice", SqlDbType.NVarChar).Value = ParseString(minPrice.Text);
+                        cmd.Parameters.Add("@maxPrice", SqlDbType.Int).Value = ParseString(maxPrice.Text);
+                        cmd.Parameters.Add("@agentId", SqlDbType.Int).Value = id_riel;
+                        cmd.Parameters.Add("@clientId", SqlDbType.Int).Value = Convert.ToInt32(dt_client.Rows[0][0].ToString());
+                        cmd.Parameters.Add("@minArea", SqlDbType.Int).Value = ParseString(minArea.Text);
+                        cmd.Parameters.Add("@maxArea", SqlDbType.NVarChar).Value = ParseString(maxArea.Text);
+                        cmd.Parameters.Add("@minRooms", SqlDbType.Int).Value = ParseString(minRooms.Text);
+                        cmd.Parameters.Add("@maxRooms", SqlDbType.NVarChar).Value = ParseString(maxRooms.Text);
+                        cmd.Parameters.Add("@minFloor", SqlDbType.Int).Value = ParseString(minFloor.Text);
+                        cmd.Parameters.Add("@maxFloor", SqlDbType.Int).Value = ParseString(maxFloor.Text);
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
                         {
@@ -135,6 +127,12 @@ namespace up01
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataTable);
             return dataTable;
+        }
+        string ParseString(string input)
+        {
+            if (input == "")
+                return "0";
+            return input;
         }
     }
 }

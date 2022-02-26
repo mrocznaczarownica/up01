@@ -43,7 +43,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="rielBox" materialDesign:HintAssist.Hint="Rieltor"/>
-        <TextBox Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="3" x:Name="maxPrice" materialDesign:HintAssist.Hint="Max. Price" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
+        <TextBox Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="3" x:Name="maxPrice" materialDesign:HintAssist.Hint="Max. Price" Cursor="IBeam"/>
         <TextBox Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="3" x:Name="minPrice" materialDesign:HintAssist.Hint="Min. Price" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
         <TextBox Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="3" x:Name="maxArea" materialDesign:HintAssist.Hint="Max. Area" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
         <TextBox Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="3" x:Name="minArea" materialDesign:HintAssist.Hint="Min. Area" PreviewTextInput="minPrice_PreviewTextInput" PreviewKeyDown="minPrice_PreviewKeyDown"/>
