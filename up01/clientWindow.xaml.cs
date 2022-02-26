@@ -27,6 +27,7 @@ namespace up01
         housePage housePage1 = new housePage();
         landsPage landsPage1 = new landsPage();
         editPage edit = new editPage();
+        supplPage suppl = new supplPage();
         //demandPage demand = new demandPage();
         demandTypePage demandType = new demandTypePage();
 
@@ -96,7 +97,8 @@ namespace up01
 
         private void offer_Click_3(object sender, RoutedEventArgs e)
         {
-
+            frame.NavigationService.Navigate(suppl);
+            suppl.log = log;
         }
     }
 }
