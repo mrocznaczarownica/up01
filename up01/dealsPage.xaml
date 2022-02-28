@@ -48,5 +48,6 @@
         <Button Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="3" Style="{DynamicResource ButtomSt}" Content="Create" Click="create_Click"/>
         <Label Grid.Row="8" Grid.Column="3" x:Name="comProd" Grid.ColumnSpan="7"/>
         <Label Grid.Row="9" Grid.Column="3" x:Name="comPok" Grid.ColumnSpan="7"/>
+        <Label Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="7" Grid.RowSpan="2" x:Name="rielDeal"/>
     </Grid>
 </Page>

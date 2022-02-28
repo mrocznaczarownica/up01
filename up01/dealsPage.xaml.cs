@@ -74,12 +74,18 @@ namespace up01
                                 int rowsAdded = cmd.ExecuteNonQuery();
                                 if (rowsAdded > 0)
                                 {
+                                    DataTable dt_riel;
+                                    int share;
+                                    DataTable dt_share;
                                     int commision1;
                                     //this.Visibility = Visibility.Hidden;
                                     DataTable dt_price = this.Select($"SELECT Price FROM [dbo].[supplies] where Id = '{supplyId.SelectedItem}'");
                                     int commision2 = Convert.ToInt32(dt_price.Rows[0][0]) / 100 * 3;
                                     if (objType.SelectedIndex == 0)
                                     {
+                                        dt_riel = this.Select($"SELECT AgentId FROM [dbo].[house-demands] WHERE Id = '{demandId.SelectedItem.ToString()}'");
+                                        dt_share = this.Select($"SELECT DealShare FROM [dbo].[agents] WHERE Id = '{dt_riel.Rows[0][0]}'");
+                                        share = ParseString(int.Parse(dt_share.Rows[0][0].ToString()));
                                         commision1 = 30000 + Convert.ToInt32(dt_price.Rows[0][0]) / 100;
                                         comProd.Content = "Комиссия для продавца составляет " + commision1;
                                     }
@@ -196,6 +202,12 @@ namespace up01
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataTable);
             return dataTable;
+        }
+        int ParseString(int input)
+        {
+            if (input == 0)
+                return 45;
+            return input;
         }
     }
 }
