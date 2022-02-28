@@ -63,7 +63,7 @@ namespace up01
                 if (demandId.SelectedItem != null)
                 {
                     if (supplyId.SelectedItem != null)
-                    {
+                    {//пизда
                         using (conn)
                         {
                             conn.Open();
