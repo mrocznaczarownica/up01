@@ -75,8 +75,11 @@ namespace up01
                                 if (rowsAdded > 0)
                                 {
                                     DataTable dt_riel;
+                                    DataTable dt_riel2;
                                     int share;
+                                    int share2;
                                     DataTable dt_share;
+                                    DataTable dt_share2;
                                     int commision1;
                                     //this.Visibility = Visibility.Hidden;
                                     DataTable dt_price = this.Select($"SELECT Price FROM [dbo].[supplies] where Id = '{supplyId.SelectedItem}'");
@@ -88,16 +91,43 @@ namespace up01
                                         share = ParseString(int.Parse(dt_share.Rows[0][0].ToString()));
                                         commision1 = 30000 + Convert.ToInt32(dt_price.Rows[0][0]) / 100;
                                         comProd.Content = "Комиссия для продавца составляет " + commision1;
+                                        int a = (commision1 + commision2) / 100 * share;
+                                        rielDeal.Content = "Доля риэлтора продавца составит " + a;
+                                        dt_riel2 = this.Select($"SELECT AgentId FROM [dbo].[supplies] WHERE Id = '{supplyId.SelectedItem.ToString()}'");
+                                        dt_share2 = this.Select($"SELECT DealShare FROM [dbo].[agents] WHERE Id = '{dt_riel2.Rows[0][0]}'");
+                                        share2 = ParseString(int.Parse(dt_share2.Rows[0][0].ToString()));
+                                        int a1 = (commision1 + commision2) / 100 * share2;
+                                        rielDeal2.Content = "Доля риэлтора покупателя составляет " + a1;
                                     }
                                     if (objType.SelectedIndex == 1)
                                     {
+                                        dt_riel = this.Select($"SELECT AgentId FROM [dbo].[apartment-demands] WHERE Id = '{demandId.SelectedItem.ToString()}'");
+                                        dt_share = this.Select($"SELECT DealShare FROM [dbo].[agents] WHERE Id = '{dt_riel.Rows[0][0]}'");
+                                        share = ParseString(int.Parse(dt_share.Rows[0][0].ToString()));
                                         commision1 = 36000 + Convert.ToInt32(dt_price.Rows[0][0]) / 100;
                                         comProd.Content = "Комиссия для продавца составляет " + commision1;
+                                        int a = (commision1 + commision2) / 100 * share;
+                                        rielDeal.Content = "Доля риэлтора продавца составит " + a;
+                                        dt_riel2 = this.Select($"SELECT AgentId FROM [dbo].[supplies] WHERE Id = '{supplyId.SelectedItem.ToString()}'");
+                                        dt_share2 = this.Select($"SELECT DealShare FROM [dbo].[agents] WHERE Id = '{dt_riel2.Rows[0][0]}'");
+                                        share2 = ParseString(int.Parse(dt_share2.Rows[0][0].ToString()));
+                                        int a1 = (commision1 + commision2) / 100 * share2;
+                                        rielDeal2.Content = "Доля риэлтора покупателя составляет " + a1;
                                     }
                                     if (objType.SelectedIndex == 2)
                                     {
+                                        dt_riel = this.Select($"SELECT AgentId FROM [dbo].[land-demands] WHERE Id = '{demandId.SelectedItem.ToString()}'");
+                                        dt_share = this.Select($"SELECT DealShare FROM [dbo].[agents] WHERE Id = '{dt_riel.Rows[0][0]}'");
+                                        share = ParseString(int.Parse(dt_share.Rows[0][0].ToString()));
                                         commision1 = 30000 + Convert.ToInt32(dt_price.Rows[0][0]) / 100 * 2;
                                         comProd.Content = "Комиссия для продавца составляет " + commision1;
+                                        int a = (commision1 + commision2) / 100 * share;
+                                        rielDeal.Content = "Доля риэлтора продавца составит " + a;
+                                        dt_riel2 = this.Select($"SELECT AgentId FROM [dbo].[supplies] WHERE Id = '{supplyId.SelectedItem.ToString()}'");
+                                        dt_share2 = this.Select($"SELECT DealShare FROM [dbo].[agents] WHERE Id = '{dt_riel2.Rows[0][0]}'");
+                                        share2 = ParseString(int.Parse(dt_share2.Rows[0][0].ToString()));
+                                        int a1 = (commision1 + commision2) / 100 * share2;
+                                        rielDeal2.Content = "Доля риэлтора покупателя составляет " + a1;
                                     }
                                     comPok.Content = "Комиссия для покупателя составляет " + commision2;
                                     MessageBox.Show("Данные зарегистрированы");
